@@ -2,6 +2,8 @@ package main
 
 import "testing"
 import "os"
+import "strings"
+import "fmt"
 
 func TestAdd(t *testing.T){
 
@@ -10,9 +12,12 @@ func TestAdd(t *testing.T){
 
     for _, e := range os.Environ() {
         pair := strings.SplitN(e, "=", 2)
-        fmt.Println(pair[0])
+        if pair[0] == "MY_ENV_VAR" {
+        	fmt.Println(pair)	
+        }
+        
     }
-    
+
     if got != want {
         t.Errorf("got %v, wanted %v", got, want)
     }
