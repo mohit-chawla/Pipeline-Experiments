@@ -1,5 +1,6 @@
 name: go test
-
+env:
+  GITHUB_TOKEN: ${{ secrets.MY_ENV_VAR }}
 on: [push]
 
 jobs:
